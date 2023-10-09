@@ -79,7 +79,7 @@
 
 ---
  
-## 성조 시각자료 제작
+## 📈성조 시각자료 제작
 - 분석목표: 각 Pitch값 즉 음 높낮이 값으로 중국어 성조 시각화하는 것입니다.
 - 데이터 : 총 2명의 발화자 음성 데이터
  1. 중국인의 발화음성 - AI hub (노이즈 X)
@@ -103,9 +103,130 @@
 <div align="left">
  <img width="32.5%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%202.png?raw=true"/>  
  <img width="32.5%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%201.png?raw=true"/> 
-  <img width="32.5%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%203.png?raw=true"/> 
+  <img width="32.5%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%203.png?raw=true"/>  
  
+  - 파랑색 점선 : 중국인 발화자 음성(정답)  
+  - 빨간색 점선 : 한국인 발화자 음성
+  - 연습 이전 음성은 정반 가량 성조가 틀린 것을 확인할 수 있었습니다. 
+  - 중국어 고급자 음성은 정답과 매우 유사하게 성조를 말했음을 확인할 수 있습니다. 
+  - 연습(프로젝트 기간 발화문장 연습) 이후 음성 선의 패턴은  연습 이전 음성에 비해 정답 선의 패턴과 조금 더 유사해짐을 확인할 수 있습니다.
+</div>
+</p>
+
+### 성조 시각화 기대효과  
+<p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%20%EA%B8%B0%EB%8C%80%ED%9A%A8%EA%B3%BC.png?raw=true"/>  
+
+ - 한국인들이 가장 어려워하는 성조 : 2성과 3성
+ - 연습 이후 음성을 보아도 여전히 3성을 틀린 것을 확인 할 수 있습니다.
+ - 실제 발화자 인터뷰 내용 : 시각화 자료를 보기 전까지 어떤 부분에서 성조를 잘 못 말했는지 인지하지 못했는데, 시각화를 통해 정확히 알게 되었다고 합니다.
+ - 이렇듯 성조 시각화 자료는 성조를 가시적으로 보여주면서 선생님의 피드백 없이도 스스로 피드백하며 자가학습을 할 수 있게 도와주는 보조역할을 합니다.
+ </div>
+</p>
+
+## 🖥️ 운율의 유창성 평가 점수  
+분석목표: 중국어의 성조 유창성 점수를 예측하는 회귀모델을 만드는 것입니다.
+데이터 : 한국인의 중국어 발화 음성 데이터 - AI hub (노이즈 없음)  
+타겟 데이터 : 전문 평가자의 성조 평가 점수
+
+### 데이터 분석 및 모델링 플로우 차트  
+<p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%EB%B6%84%EC%84%9D%20%EB%B0%8F%20%EB%AA%A8%EB%8D%B8%EB%A7%81%20%ED%94%8C%EB%A1%9C%EC%9A%B0%20%EC%B0%A8%ED%8A%B8.png?raw=true"/>  
  
+ - 음성 데이터 전처리 후 음성정보 중 하나인 크로마그램을 추출하였습니다. 
+ - 이후 패딩을 진행하면서 최대길이 설정에 따라 모델 성능이 달라질 수 있다고 판단하여
+ 데이터의 벡터길이를 고려해 600,500,550이라는 3개의 패딩데이터를 저장하였습니다.  
+ - 다양한 모델들로 데이터 실험 및 성능평가를 통해 CNN+LSTM과 LSTM+Attention모델을 보다 집중적으로 모델링 하여, 성능 평가 및 테스트를 진행하였습니다. 
+  </div>
+</p>
+
+ ### 분석 및 모델링 과정 
+ #### 음성 데이터 전처리
+ 
+ 문제인식 : 음성 데이터 길이가 모두 달랐습니다.
+
+ - 짤게는 3초, 길게는 70초까지 음성 데이터 길이가 다양했습니다.
+ - 데이터 패딩시 음성을 자르게 되면 몇몇 음성은 초반 음성에 대한 점수로 모델이 학습할 수 있어 이로 인한 왜곡이 우려되어 10초라는 특정 시간대 이후로의 데이터는 삭제했습니다.
+   (10초 이전 : 데이터가 90%이상 분포하고 있는 구간 )
+
+#### 음성 정보 채택 및 추출
+
+**다양한 음성 정보**  
+
+- Mel Spectogram : 사람의 청각인지를 반영하기 위한 스펙초그램에 Mel sclae를 적용한 특징 추출 기법
+  (Mel Scale : 실제 주파수 정보를 인간의 청각 구조를 반영하여 수학적으로 변환하기 위한 방법
+  예- 돌고래 소리의 주파수가 매우 높아 사람이 듣지 못하는 개념을 스펙토그램에 반영한 것)
+- MFCC(Mel-Frequency Cepstral Coefficients) : 사람의 청각 구조와 음색의 차이를 반영한 음성 데이터 특징 추출 기법
+  (Ceptral 분석 : 배음의 구조를 파악해 음색의 차이를 구별하는 분석법 - 악기나 성대의 구조 차이에의해 발생)
+- 크로마그램 : 인간 청각이 옥타브 차이가 나는 주파수를 가진 두 음을 유사음으로 인지한다는 음악이론에 기반
+  (12개의 Bin으로 특징이 추출된다. - 도,도샵,레, 레샵 ~ 시 12개 음계값)
+
+**크로마그램 채택** 
+
+- 중국어 성조는 음절에 해당하는 소리의 높이 변동
+- 중국어 성조 중 2성은 미에서 솔까지 올리면 2성이 됩니다. 이와 같이 성조는 12개의 음계와 매우 밀접한 관련이 있다고 판단해 음성데이터에서 크로마그램을 추출해 분석했습니다.
+
+**크로마그램 추출 후 패딩 + 시각화**  
+
+패딩
+
+<p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%ED%81%AC%EB%A1%9C%EB%A7%88%EA%B7%B8%EB%9E%A8%20%EC%B6%94%EC%B6%9C%20%ED%9B%84%20%ED%8C%A8%EB%94%A9.png?raw=true"/>  
+ </div>
+</p>
+
+ 시각화  
+ <p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%ED%81%AC%EB%A1%9C%EB%A7%88%EA%B7%B8%EB%9E%A8%20%EC%8B%9C%EA%B0%81%ED%99%94.png?raw=true"/>  
+
+ - 크로마그램 시각자료를 보면 빨간색이 진한, 즉 크로마그램 특징이 투렷하게 추출된 음성 데이터의 점수가 높음을 확인할 수 있고, 점수가 낮을수록 크로마그램 특징이 뚜렷하지 않음을 확인할 수 있습니다.
+
+ </div>
+</p>
+
+#### 모델링 과정 소개 및 결과
+**DNN** 
+결과 : 오버피팅 발생 - 문제의 복잡도에 비해 모델이 너무 단순하기 때문이라 판단했습니다.
+
+**CNN+BILSTM**
+ <p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/CNN+LSTM.png?raw=true"/>  
+  <p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/CNN+LSTM%20%EA%B5%AC%EC%84%B1%EC%A0%95%EB%B3%B4.png?raw=true"/>  
+ 
+ - 윤상혁 외 2명(2021), CNN-LSTM 모델 기반 음성 감정 인식, ACK 2021 학술발표대회 논문집 (28권 2호) 을 참고해 모델 작성하였습니다.
+
+ <p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/CNN+LSTM%20%EC%84%B1%EB%8A%A5%EA%B2%B0%EA%B3%BC.png?raw=true"/>  
+
+ - 각기 다른 패딩값을 가진 3개의 데이터로 실험을 해보았지만 큰 차이는 없었습니다.
+ - 그 중에 패딩 최대길이가 500일때가 가장 MSE값이 낮아 해당 데이터로 분석을 진행하게 되었습니다.
+ - 성능지표 그래프를 통해 Loss값과 MSE값 모두 한 값으로 수렴하면서 매우 낮아짐을 확인할 수 있습니다.
+ </div>
+</p>
+  
+**모델 성능 비교**  
+ <p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EB%AA%A8%EB%8D%B8%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%84%B1%EB%8A%A5%20%EB%B9%84%EA%B5%90.png?raw=true"/>  
+
+ - CNN-BILSTM과 LSTM+Attention 모델의 성능지표값이 가장 좋았고, 근소하게 LSTM+ATTention의 Mse값이 더 낮음을 확인할 수 있었습니다.
+ - 하지만 저희 서비스의 목적에 조금 더 부합한 모델이 CNN-BILSTM이라고 생각하고 이를 채택해 실제 데이터로 테스트 해보았습니다.
+ </div>
+</p>
+
+**CNN-BILSM 실제 데이터 예측값**  
+<p align='left'>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EB%AA%A8%EB%8D%B8%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%84%B1%EB%8A%A5%20%EB%B9%84%EA%B5%90.png?raw=true"/>
+
 **리츠 주가등락 예측모형에 대한 모델 설계 과정은 다음과 같습니다.**
 1. 수집 및 전처리 
 2. 변수 선정
