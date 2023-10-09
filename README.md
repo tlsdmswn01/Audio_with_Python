@@ -101,9 +101,9 @@
 ### 성조 시각화
 <p align='left'>
 <div align="left">
- <img width="33%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%202.png?raw=true"/>  
- <img width="33%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%201.png?raw=true"/> 
-  <img width="33%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%203.png?raw=true"/> 
+ <img width="32.5%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%202.png?raw=true"/>  
+ <img width="32.5%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%201.png?raw=true"/> 
+  <img width="32.5%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%203.png?raw=true"/> 
  
  
 **리츠 주가등락 예측모형에 대한 모델 설계 과정은 다음과 같습니다.**
