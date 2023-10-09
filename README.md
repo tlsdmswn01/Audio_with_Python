@@ -9,10 +9,6 @@
 
 </p>
 
-SAR은 리츠 투자자의 리츠 가치평가를 돕는 대시보드로 
-* 한 달뒤 상장 리츠 주가 등락 예측 모델과, 
-* 대안 정보를 활용한 대시보드를 통해,
-* 리츠 활성화에 기여하고자 합니다.
 
 ## 🗂️프로젝트 소개
 본 프로젝트는 성조 시각화 자료와 성조 운율 점수 제시를 통해,  
@@ -44,7 +40,7 @@ SAR은 리츠 투자자의 리츠 가치평가를 돕는 대시보드로
 - 현재 통용되고 있는 성조교육방식으로 오도제 표기법(성조의 상대적인 음의 고저를 5에서 1로 선으로 그린 도표)가 있습니다. 이는 성조 교육 시 음높이와 방향을 직관적으로 제시해 교육에 도움을 줍니다. 
  
 <div align="center">
- <img width="80%" src="![스크린샷 2023-10-09 180326](https://github.com/tlsdmswn01/NLP_Project---Audio/assets/135305102/b59c61c9-285b-4f2b-931a-97aeec70f8f1)"
+ <img width="50%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%EC%84%B1%EC%A1%B0%20%EC%98%A4%EB%8F%84%ED%91%9C%EC%8B%9C%EB%B2%95.png?raw=true"
 />
 </div>
 
