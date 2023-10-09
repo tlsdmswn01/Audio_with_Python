@@ -1,9 +1,12 @@
-# SAR : 리츠투자플랫폼 
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="80%" src="https://github.com/ssongssong00/ShinhanAI/assets/87919319/e6783a9a-8838-4732-ab3c-55de0e803af8"/>
+# 중국어 성조 교육을 위한 시각자료 및 운율점수 제시
+## 프로젝트 개요
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B0%9C%EC%9A%94.png?raw=true"/>
+</p>
+ 
+ ## 최종 결과물
+ <p align='left'>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%B5%9C%EC%A2%85%20%EA%B2%B0%EA%B3%BC%EB%AC%BC.png?raw=true"/>
 
 </div>
 
@@ -53,46 +56,56 @@
 - 성조언어에서 흔히 나타나는 현상으로, 두 개 이상의 음절을 이어서 읽을 때 성조가 변화하는 현상을 말합니다.
 - 실질적인 성조 표기와 실질적인 성조의 운율이 상이합니다. 
 
-
+<div align="center">
+ <img width="50%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EB%B3%80%ED%99%94%20%EC%96%B4%EB%A0%A4%EC%9B%80.png?raw=true"
+/>
+</div>
 
 
  ---
  
- ## 🗒사용자 정의 문서
+ ## 기존 서비스와의 차별점
  
- ### 페르소나
- <div align="center">
- <img width="80%" src="https://github.com/ssongssong00/ShinhanAI/assets/87919319/816c5bec-1060-4a7f-9c69-87f04cca6680"/>
-</div>
+ ### 오색중국어
+ - 5가지 색깔로 성조 표현
+ - 직접 녹음 및 듣기 가능
+ - 하지만 알맞지 않은 성조로 중국어를 구사해도 잘했다고 피드백을 줄 정도로 성조 오류에 대한 피드백이 없습니다.
 
- <div align="center">
- <img width="80%" src="https://github.com/ssongssong00/ShinhanAI/assets/87919319/f56f7800-304b-4a20-aa22-85d74e6978d8"/>
-</div>
-
- ### 시나리오
- 
- #### #1
- *대기업 은퇴 예정자인 박리츠는 SAR을 통해 은퇴설계에 도움을 얻고자 한다.*
- 
- 0. 박리츠는 SAR을 실행한다.
- 1. 박리츠는 AI 기반 리츠 추천 종목을 확인한다.
- 2. 한 달뒤 상승으로 예측된 리츠의 자세한 정보를 확인하기 위해 회계정보 대시보드를 클릭한다.
- 3. 해당 리츠가 배당을 꾸준히 주고 있는지, FFO와 같은 주요 지표를 확인한다.
- 4. 정리된 투자보고서와 영업보고서를 정독하여 해당 리츠의 재정 상태가 정상인지 확인한다.
- 5. 해당 리츠의 기초자산이 건전한지 파악하기 위해 기초자산 대시보드를 클릭한다.
- 6. 보유하고 있는 리츠의 기초자산의 유형을 확인하고 투자 시기기 적절한지 파악한다.
- 7. 교통, 유동인구 등 대안정보를 활용하여 리츠의 가치 평가에 도움을 얻는다.
+ ### Hello Chinese
+ - 내가 녹음한 것에 대해 전체적인 평가 점수 피드백이 있었고,
+ - 틀린부분도 빨간색으로 표시해주었습니다.
+ - 하지만, 평가 점수에 반영된 것이 성조가 틀린 건지 발음이 틀린 건지 구분이 없었습니다.
+ - 또한 어떤 방향으로 개선해야 되는지에 대한 피드백은 없었습니다.
 
 ---
  
-## 📔모델링 설명
+## 성조 시각자료 제작
+- 분석목표: 각 Pitch값 즉 음 높낮이 값으로 중국어 성조 시각화하는 것입니다.
+- 데이터 : 총 2명의 발화자 음성 데이터
+ 1. 중국인의 발화음성 - AI hub (노이즈 X)
+  2. 한국인의 발화음성 - 직접 녹음 (노이즈 존재, 따로 전처리 진행)
+     (한 문장에 대한 -> 연습 이전, 중국어 고급자 , 연습 이후 총 3개의 한국인 음성)
+### 성조 시각화 플로우 차트
+
 <p align='center'>
-<br>
-<div align="center">
- <img width="80%" src="https://github.com/ssongssong00/ShinhanAI/assets/96776691/e69769f3-5eb2-4472-9bfb-67f5b23b78cb"/>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%20%ED%94%8C%EB%A1%9C%EC%9A%B0%20%EC%B0%A8%ED%8A%B8.png?raw=true"/>  
+ 
+ - 각 발화자 음성데이터에서 Praat을 통해 Pitch 값 추출  
+ - 한국인 음성 데이터 노이즈 제거
+ - 각 발화자 음성 데이터 배열을 합쳐 전처리 진행(음성 시작, 끝점 통일/ 음절 길이 통일 등)
+ - 성조 시각화
 </div>
 </p>
 
+### 성조 시각화
+<p align='left'>
+<div align="left">
+ <img width="33%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%202.png?raw=true"/>  
+ <img width="33%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%201.png?raw=true"/> 
+  <img width="33%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%84%B1%EC%A1%B0%20%EC%8B%9C%EA%B0%81%ED%99%94%203.png?raw=true"/> 
+ 
+ 
 **리츠 주가등락 예측모형에 대한 모델 설계 과정은 다음과 같습니다.**
 1. 수집 및 전처리 
 2. 변수 선정
