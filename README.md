@@ -44,8 +44,8 @@ SAR은 리츠 투자자의 리츠 가치평가를 돕는 대시보드로
 - 현재 통용되고 있는 성조교육방식으로 오도제 표기법(성조의 상대적인 음의 고저를 5에서 1로 선으로 그린 도표)가 있습니다. 이는 성조 교육 시 음높이와 방향을 직관적으로 제시해 교육에 도움을 줍니다. 
  
 <div align="center">
- <img width="80%" src="![image](https://github.com/tlsdmswn01/NLP_Project---Audio/assets/135305102/11d98b6e-8fc1-4f04-8fb3-0bde699f6e06)
-"/>
+ <img width="80%" src="![스크린샷 2023-10-09 180326](https://github.com/tlsdmswn01/NLP_Project---Audio/assets/135305102/b59c61c9-285b-4f2b-931a-97aeec70f8f1)"
+/>
 </div>
 
 ### 성조가 중요한 이유
