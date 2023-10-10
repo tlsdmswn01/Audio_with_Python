@@ -1,8 +1,9 @@
 # 중국어 성조 교육을 위한 시각자료 및 운율점수 제시
 ## 프로젝트 개요
 <div align="left">
- <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B0%9C%EC%9A%94.png?raw=true"/>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B0%9C%EC%9A%94.png?raw=true"/>  
 </p>
+
  
  ## 최종 결과물
  <p align='left'>
@@ -225,195 +226,106 @@
 **CNN-BILSM 실제 데이터 예측값**  
 <p align='left'>
 <div align="left">
- <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EB%AA%A8%EB%8D%B8%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%84%B1%EB%8A%A5%20%EB%B9%84%EA%B5%90.png?raw=true"/>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EB%AA%A8%EB%8D%B8%20%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%84%B1%EB%8A%A5%20%EB%B9%84%EA%B5%90.png?raw=true"/>  
 
-**리츠 주가등락 예측모형에 대한 모델 설계 과정은 다음과 같습니다.**
-1. 수집 및 전처리 
-2. 변수 선정
-3. 모델링
-4. 평가 검증 및 성능 측정
-
-### 1. 수집 및 전처리
-**데이터 수집**
-
-2019년 1월 ~ 2022년 12월을 기준으로 하여 데이터를 수집하였습니다.
-- 각 리츠 일별 / 투자자별 거래 데이터를 한국 주식 거래소(KRX)에서 수집하였습니다.
-- 각 리츠 분기별 재무상태표 데이터와 일별 / 월별 거시경제 데이터는 FnGuide를 통해 수집하였습니다.
-- 일별 / 부동산 유형별 뉴스 데이터는 빅카인즈를 통해 수집하였습니다.
-
-**파생변수 생성**
-- 투자자별 리츠 상품 거래데이터를 통해 "정보비대칭 변수"(기관, 외국인별 순매수도 금액, 체결강도)를 파생변수로 추가하였습니다.
-- 일별 주식 거래 데이터를 활용하여 "테크니컬 변수"(SMA20, MACD, ATR, TR, RSI, SLOW_K)를 파생변수로 추가하였습니다.
-- 부동산 뉴스테이터를 활용하여 부동산 유형별로 감성 분석을 진행하고 개별리츠의 투자 자산 비중에 맞춰 가중평균한 "부동산 뉴스 심리지수 변수"를 파생변수로 추가하였습니다.
-
-
-### 2. 변수 선정
-**변수 유의성 확인**
-앞에서 추출한 후보변수를 고전적 회귀모형 가정(CLM)을 기준으로 변수의 유의성을 확인하였습니다.
-
-- 정규성 검정
-정규성 검정 결과 대부분 변수가 정규성을 만족하지 않는다는 것을 확인하였습니다. CLM가정을 중 하나인 정규성을 만족시키기 위해서 데이터 분포의 양 끝단 데이터를 0.5%를 끝단 값으로 대치하는 윈저라이징 기법을 통해 정규성을 확보하고자 하였습니다.
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/96776691/f85a0ab5-1b28-400e-8281-6ccb37b53488"/>
-
-</div>
+ - 확인결과 실제값과 예측값의 결과가 매우 상이함을 확인할 수 있었습니다.
+ </div>
 </p>
 
- - 다중공선성 확인
-상관관계를 파악하기 위해 히트맵으로 변수간 상관의 여부를 파악하고 VIF계수로 그 상관의 정도를 확인하였습니다. 다중공선성이 너무 높은 변수들은 제거하고 모델링을 진행하였습니다.
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/96776691/9f8fd758-c54d-4dcd-9115-ea1da9130952"/>
-
-</div>
+### 모델링 한계점
+1. 타겟 데이터의 주관성
+   - 운율 유창성 점수는 평가기준이 있어도, 채점하는 교사의 주관이 반영됩니다.
+   - 주관성으로 점수의 편차가 발생해, 절대적으로 평가점수를 신뢰하기 어렵습니다.
+2. 데이터의 부족
+   - 실제 값의 예측값이 3.5,3.4,3.75으로 타겟 데이터의 빈도가 높은 값으로 나와 정확한 예측을 하지 못함을 확인할 수 있었습니다.
+   - 이는 데이터 부족으로 인한 문제이며 향후 데이터를 증강하고 모델을 개선하면 완화될 것이라 기대합니다.
+  
+### 💡 대안 모색  
+ <p align='left'>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EB%8C%80%EC%95%88%EB%AA%A8%EC%83%89.png?raw=true"/>  
+  </div>
 </p>
 
-이를 통해 모델 학습에 사용 될 최종 변수들을 선정하고 하나의 데이터프레임으로 합쳐 최종 데이터셋을 생성하였습니다. 
+
+## ✨ 성조 유사도 구하기 (DTW 유사도 기반)  
+분석목표: 각 발화자의 Pitch값 추출 및 전처리 후 중국어 성조 유사도 구하기입니다.
+데이터 : 성조 시각화에서 사용했던 동일한 데이터입니다. 
+
+
+### 유사도 분석 플로우 차트
 
 <p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/96776691/8fb22b82-3870-4839-b7ad-74eed17485aa"/>
+<div align="left">
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%9C%A0%EC%82%AC%EB%8F%84%20%EB%B6%84%EC%84%9D%20%ED%94%8C%EB%A1%9C%EC%9A%B0%20%EC%B0%A8%ED%8A%B8.png?raw=true"/>  
 
-</div>
+ - 각 음성데이터에서 추출된 Pitch값을 전처리 후,
+ - 유사도를 구하는 다양한 방법으로 어떤 유사도가 선생님* 평가 점수와 가장 유사한지 확인하였습니다.
+ - 그 중에 코사인 유사도와 DTW유사도를 주의깊게 살펴보았습니다.
+ - 두 유사도 중 선생님 평가점수 및 시각자료와 비교해 저희 서비스와 가장 부합한 DTW 유사도를 채택해 자료를 제작하였습니다.
+
+*선생님 : 중국어 교원 자격증을 소지한자  
+
+ </div>
 </p>
 
-종속변수는 한달 뒤 주가등락 여부를 확인하는 것으로 상승, 보합 및 하락으로 이진변수로 구성하였습니다. 종속 변수 분포를 확인한 결과, 1:1 비율로 데이터가 균형있게 존재함을 파악하였습니다. 
+### DTW 유사도란?  
+- 두개의 시계열 데이터가 서로 얼마나 유사한지 비교하는 알고리즘입니다.
+- 장점: 길이와 시점의 차이가 있는 시계열 데이터도 유사도를 비교할 수 있다
 
-### 3. 모델링
-**알고리즘 채택**
-종속변수 주가 등락을 예측하기 위해 분류 알고리즘을 사용하였습니다. 로지스틱 회귀모형, 트리계열의 XGBoost, CatBoost, 기타 분류 모델인 SVM, Naive Bayes 분류 모형 등의 알고리즘을 사용하여 모델링을 진행한 결과, 트리 기반의 XGBoost 알고리즘이 가장 좋은 성능을 보여주었기 때문에 XGBoost를 채택하였습니다.
+### Pitch 값 전처리 
+- 각 발화자가 갖는 각각의 끊어져 있는 Pitch 값들을 모두 연결해 시간에 따른 Pitch값의 변화를 나타내는 시계열 데이터로 만들어주었습니다.
 
-### 4. 평가 검증 및 성능 측정
-**성능 평가 지표**
-모형을 평가함에 있어 분류 모델에서 주로 사용되는 Confusion Matrix를 기반으로 Accuracy, Precision, Recall, F1 score를 측정하였습니다. 
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/96776691/fced78cf-c4c2-491a-a6a5-a39ff006983c"/>
+<p align='left'>
+<div align="left">
+ <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%201.png?raw=true"/>  
+ <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%202.png?raw=true"/>  
 
-</div>
+ </div>
 </p>
 
-**피쳐 중요도**
-트리계열 알고리즘에서 어떤 변수가 가장 큰 영향을 미쳤는지 파악하기 위해 학습시킨 모형에서 피쳐중요도를 확인하였습니다. 1달 뒤의 주가등락을 예측하였기 때문에 중장기 주가 등락을 예측할 때 중요한 변수들임을 파악할 수 있습니다. 
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/96776691/2c40566a-2006-495b-937b-11c0faa81d0a"/>
+<p align='left'>
+<div align="left">
+ <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%201.png?raw=true"/>  
+ <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%202.png?raw=true"/>  
 
-</div>
-</p>
-
----
-
-## 📔대시보드 설명
-### **SAR Dashboard** ###
-
-### 1. Home 대시보드
-대시보드를 처음 실행 시, 사용자는 메인화면에 접속하게 됩니다. 
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/100076851/3fd3e08a-669c-4e54-9d85-8015d57ed9ee"/>
-
-</div>
+ </div>
 </p>
  
-- **주가등락예층모형 기반 기간별 리츠 추천**을 통해 등락 여부, 배당수익률, 기초자산 건전성을 비교하며 안전하고 전망이 좋은 리츠 상품을 한눈에 파악 가능
-- **부동산 시장에 주로 영향을 미치는 거시변수**인 주택 매매지수/국고채 3년/종합주가지수/건설업종지수의 추이를 한눈에 확인하여 시장상황에 적합한 투자 가능
-- **섹터별 부동산 뉴스기사 감성분석**을 통해 부동산 시장에 대한 의견 및 평가를 요약된 정보로 부동산 섹터별 확인 가능 
-- **부동산 뉴스기사 및 키워드 제공**을 통해 부동산 시장에 대한 정보를 키워드로 한눈에 파악 가능
+### DTW 알고리즘 
 
-
-### 2. 개별 리츠 대시보드
-메인화면에서 '개별 리츠(ex.신한알파리츠)'를 클릭 시, '개별 리츠' 대시보드로 이동하게 됩니다.
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/100076851/deeb88a7-0609-484a-9728-271bc1310229"/>
-
-</div>
+<p align='left'>
+<div align="left">
+ <img width="100%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.png?raw=true"/>  
+ </div>
 </p>
 
-- 현재 종가, 등락률 등과 같은 보유한 자산의 섹터별 구성 비중 정보인 **리츠의 자산 구성**  제공
-- **애널리스트 투자의견**을 통해 전문가의 투자의견과 자신의 투자 의견을 종합한 합리적인 투자 가능
-- FFO,P/FFO 등 **회계 요약 정보**를 통해 리츠 투자시 고려할 회계 정보를 투자자들이 이해하기 쉽게 설명과 함께 요약 제공
-- 위치 기반, 임대 현황, 추이와 같은 **기초자산정보**를 참고하여 주변 상권에 대한 전망을 파악할 수 있으며 임대 동형 확인 가능
+### DTW 유사도 점수화  
+- DTW 유사도 결과 값 : 최단 거리값
+- 범위 : 0~무한
+- 유사도 해석 : 결과 값이 커질수록 두 시계열 데이터의 패턴은 유사하지 않습니다.
+- 코사인 유사도 결과 값과 다르게 %로 나타내기 위한 기준값이 없습니다.
 
-### 3. 리츠 회사 회계 정보 대시보드
-'개별 리츠' 대시보드에서 '회계 정보 상세보기'를 클릭 시, '회계 정보' 대시보드로 이동하게 됩니다.
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/100076851/efa74c57-baf7-4ec8-9e32-95400cf06a3c"/>
-
-</div>
+  **기준값 설정 후 점수화**
+  - 학습자가 이해하기 쉽게 DTW 유사도 값을 점수화하고자 했습니다.
+  - 각 학국인의 중국어 발화음성을 선생님이 평가한 점수와 DTW 유사도 값의 평균값, 중앙값, 임의의 기준 100점으로 DTW 유사도 값을 점수화 해 실제 선생님 점수와 비교해보았습니다.
+  - 확인 결과 100점을 기준으로 DTW 유사도 값을 역수 취해 %를 구했을 떄, 실제 선생님 점수와 가장 유사했습니다.
+ 
+## 최종결과물 
+ <p align='left'>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EC%B5%9C%EC%A2%85%20%EA%B2%B0%EA%B3%BC%EB%AC%BC.png?raw=true"/>  
+  </div>
 </p>
 
-- 리츠가 약속한 배당을 잘 주고 있는지, 추후 배당일정은 어떻게 되는지 등의 **배당내역** 제공
-- **투자보고서와 월간보고서**를 링크와 pdf를 통해 제공하여 분산되어 있는 리츠 정보 제공
-- 해당 리츠가 현재 얼마나 돈을 많이 벌고 있는지 확인 가능한 **FFO(Funds For Opperation)** 제공
-- 현재 발생하는 임대료에서 영업 경비를 제외한 **NOI(Net Opperation Income)** 제공
-- 회계정보에서 합계로만 제공되는 **Cap Rate**와 **건물별 Cap Rate**를 제공하여 실질적인 투자 수익률 확인 가능
-- **자산, 부채, 자본, 총계** 정보 제공
-
-### 3-1. 회계 용어 설명
-낯선 회계 용어를 만나면 지표 옆의 물음표 버튼을 통해 SAR의 쉬운 **회계 용어 설명** 제공
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/100076851/713d21d1-b88f-49f1-a38f-e71eb258b718"/>
-
-</div>
+## 팀원 소개 및 역할 분담  
+ <p align='left'>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%ED%8C%80%EC%9B%90%20%EC%86%8C%EA%B0%9C%20%EB%B0%8F%20%EC%97%AD%ED%95%A0%EB%B6%84%EB%8B%B4.png?raw=true"/>  
+  </div>
 </p>
 
+## 기대 및 자체평가 의견  
 
-
-
-### 4. 기초자산정보 대시보드
-'개별 리츠' 대시보드에서 '기초자산정보 상세보기'를 클릭 시, '기초자산 정보' 대시보드로 이동하게 됩니다.
-
-<p align='center'>
-<br>
-<div align="center">
- <img width="70%" src="https://github.com/ssongssong00/ShinhanAI/assets/100076851/8c4c8f7b-c942-41b7-a591-2e7e58928c77"/>
-
-</div>
+ <p align='left'>
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/%EA%B8%B0%EB%8C%80%20%EB%B0%8F%20%EC%9E%90%EC%B2%B4%ED%8F%89%EA%B0%80%EC%9D%98%EA%B2%AC.png?raw=true"/>  
+  </div>
 </p>
 
-- 자산의 임차인, 사용 목적, 기업 분류와 같은 **임차인 정보** 제공
-- 임대료에 영향을 미치는 요인들을 제공하고 지도에 표시할 선택 가능한 **지표** 제공
-- 선택 **지표 상세정보**, 자산과 리츠의 평균 평점 정보를 제공
-- **기초자산 위치 정보**를 통해 자산의 위치, 선택 지표 정보를 지도에 제공하며 검색 기능을 통해 리츠의 자산 외의 지역도 검색 및 탐색 가능
-- 자산이 속해 있는 **지역 뉴스**를 통해 주변 상권 및 자산의 가치 동향 파악 가능
-
-## 📈프로젝트 기대효과
-
-- 리츠 시장의 정보 비대칭성 해소
-
-일반 투자자들은 분산된 리츠의 정보들을 SAR 대시보드를 통해 한눈에 쉽게 파악 가능합니다. 이를 통해 리츠 시장에 대한 정보 비대칭성을 해소하고, 투자자들은 리츠기업의 재정상태, 기초자산의 건전성등을 쉽게 파악해 안전한 투자가 가능해집니다.   
-
-- 리츠 시장의 진입장벽 완화
-
-SAR 대시보드는 투자자들이 알기 어려운 회계용어 및 리츠추천 기능의 원리 등의 정보들에 대해 이해하기 쉬운 설명과 함께 제공됩니다. 각 용어와 원리에 대한 쉬운 설명으로 일반 투자자들의 리츠 투자에 대한 진입장벽이 낮아지고 더 나아가 고령 투자자의 안전한 리츠 투자가 가능해져 퇴직연금 시장의 리츠 투자가 활성화 될 것으로 기대됩니다.  
-
-- 신한투자증권 HTS시스템과 SAR의 연동
-
-SAR이 활성화 되어 신한투자증권에 개설된 연금계좌가 연동되면 투자자들의 더욱 안전한 리츠투자가 가능할 것으로 기대됩니다. 이는 신한투자증권의 연금 운용 활성화 기능으로써 신한투자증권의 IRP계좌를 계설하는 고객들이 많아지고, 더 나아가 리츠 매매가 활성화 될 것으로 예상됩니다. 
-
-- 신한 AI MWS와의 시너지
-
-SAR이 활성화 되면 앞으로 신한 AI, 마켓워닝시스템 'MWS'와의 연계가 가능할 것으로 기대됩니다. 시장에 영향을 많이 받는 부동산의 특성을 고려해 '마켓워닝시스템'을 활용해 리츠 시장에 유연하게 대처하며 적합한 리츠 상품 추천까지 가능한 시스템으로 확장할 것으로 예상됩니다. 
-
-
----
