@@ -277,25 +277,18 @@
 
 <p align='left'>
 <div align="left">
- <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%201.png?raw=true"/>  
- <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%202.png?raw=true"/>  
+ <img width="49%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%201.png?raw=true"/>  
+ <img width="49%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%202.png?raw=true"/>  
 
  </div>
 </p>
 
-<p align='left'>
-<div align="left">
- <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%201.png?raw=true"/>  
- <img width="50%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EC%A0%84%EC%B2%98%EB%A6%AC%202.png?raw=true"/>  
-
- </div>
-</p>
  
 ### DTW 알고리즘 
 
 <p align='left'>
 <div align="left">
- <img width="100%" height="250" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.png?raw=true"/>  
+ <img width="100%" src="https://github.com/tlsdmswn01/NLP_Project---Audio/blob/main/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20PPT/DTW%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.png?raw=true"/>  
  </div>
 </p>
 
